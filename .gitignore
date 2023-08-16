@@ -33,3 +33,5 @@
 *.pdb
 
 /bin/intermediates/
+
+.vs/
