@@ -2,41 +2,43 @@
 #include "ChiliException.h"
 #include <sstream>
 
-
-ChiliException::ChiliException( int line,const char* file ) noexcept
-	:
-	line( line ),
-	file( file )
-{}
-
-const char* ChiliException::what() const noexcept
+ChiliException::ChiliException(int line, const char* file) noexcept
+  : line(line)
+  , file(file)
 {
-	std::ostringstream oss;
-	oss << GetType() << std::endl
-		<< GetOriginString();
-	whatBuffer = oss.str();
-	return whatBuffer.c_str();
 }
 
-const char* ChiliException::GetType() const noexcept
+const char*
+ChiliException::what() const noexcept
 {
-	return "Chili Exception";
+  std::ostringstream oss;
+  oss << GetType() << std::endl << GetOriginString();
+  whatBuffer = oss.str();
+  return whatBuffer.c_str();
 }
 
-int ChiliException::GetLine() const noexcept
+const char*
+ChiliException::GetType() const noexcept
 {
-	return line;
+  return "Chili Exception";
 }
 
-const std::string& ChiliException::GetFile() const noexcept
+int
+ChiliException::GetLine() const noexcept
 {
-	return file;
+  return line;
 }
 
-std::string ChiliException::GetOriginString() const noexcept
+const std::string&
+ChiliException::GetFile() const noexcept
 {
-	std::ostringstream oss;
-	oss << "[File] " << file << std::endl
-		<< "[Line] " << line;
-	return oss.str();
+  return file;
+}
+
+std::string
+ChiliException::GetOriginString() const noexcept
+{
+  std::ostringstream oss;
+  oss << "[File] " << file << std::endl << "[Line] " << line;
+  return oss.str();
 }
