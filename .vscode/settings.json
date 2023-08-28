@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "span": "cpp",
+        "sstream": "cpp",
+        "optional": "cpp"
+    }
+}
