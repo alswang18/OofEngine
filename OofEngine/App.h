@@ -13,4 +13,5 @@ private:
 
 private:
   Window wnd;
+  ChiliTimer timer;
 };
